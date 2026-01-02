@@ -4,27 +4,18 @@ public class PlusOne {
         for (int i = n; i>=0 ; i--){
             if(digits[i]<9) {
                 digits[i] += 1;
-                break;
-            } 
-            else if (i==0 && digits[i]==9){
-                digits[i] = 0;
-                int[] newDigits = new int[digits.length+1];
-                for(int j=0; j<newDigits.length; j++){
-                    if(j==0) newDigits[j] = 1;
-                    else newDigits[j] = digits[j-1];
-                }
-                return newDigits;
+                return digits;
             }
-            else if (digits[i]==9){
-                digits[i]=0;
-            } 
+            digits[i] = 0;
         }
-        return digits;
+        int[] newDigits = new int[digits.length+1];
+        newDigits[0] = 1;
+        return newDigits;
     }
     public static void main(String[] args) {
-        int[] digits = {1,2,9};
+        int[] digits = {9,9,9};
         for(int i : plusOne(digits)){
-            System.out.println(i);
+            System.out.print(i);
         }
     }
 }
